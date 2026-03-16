@@ -1,20 +1,20 @@
---write a program which accept measurment in feet and display it in cm,inches and meter.
-set serveroutput on 
-declare
-	feet number;
-	cm  number;
-	inch number;
-	meter number;
+--definition 1
+
+--Write a PL/SQL block that uses a cursor attribute
+SQL%ROWCOUNT to raise the basic salary of
+employees by 10% that are working in department
+number 10 and also display the appropriate
+message based on the existence to the record in
+the EMP table. (Use Implicit Cursor)
+set serveroutput on
+
 begin
-	feet:=&feet;
-	
--- conversions
-	cm:=feet*30.48;
-	inch:=feet*12;
-	meter:=feet*0.3048;
-	dbms_output.put_line('feet :'||feet);
-	dbms_output.put_line('centimeter :'||cm);
-	dbms_output.put_line('inches :'||inch);
-	dbms_output.put_line('meters :'||meter);
+update employee set BASICSAL=basicsal + (Basicsal
+*0.10) where deptno=10;
+dbms_output.put_line('Salary Updated..');
+if SQL%FOUND then
+dbms_output.put_line('total no of records
+updated are:'||SQL%ROWCOUNT);
+end if;
 end;
 /
